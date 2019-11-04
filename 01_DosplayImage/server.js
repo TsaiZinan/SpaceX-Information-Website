@@ -7,11 +7,19 @@ const apiKey = '*****************';
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: true }));
+
+// set the view engine to ejs
 app.set('view engine', 'ejs')
 
+// index page
 app.get('/', function (req, res) {
   res.render('index', {result: null, error: null, mutipleResult: null});
 })
+
+// about page 
+// app.get('/about', function(req, res) {
+//   res.render('pages/about');
+// });
 
 app.post('/', function (req, res) {
   let number = req.body.number;
