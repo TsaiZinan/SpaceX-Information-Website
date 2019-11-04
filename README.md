@@ -1,3 +1,3 @@
 # SpaceX website by Node.JS
 
-<a href="https://imgur.com/SB4DDrI"><img src="https://i.imgur.com/SB4DDrI.png" title="source: imgur.com" /></a>
+<a href="https://imgur.com/slrzMMO"><img src="https://i.imgur.com/slrzMMO.jpg" title="source: imgur.com" /></a>
