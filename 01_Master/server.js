@@ -13,7 +13,7 @@ app.set('view engine', 'ejs')
 
 // index page
 app.get('/', function (req, res) {
-  res.render('index', {result: null, error: null, mutipleResult: null});
+  res.render('pages/index', {result: null, error: null, mutipleResult: null});
 })
 
 // about page 
@@ -36,14 +36,19 @@ app.post('/', function (req, res) {
     var img;
     var multiimage = [];
 
+    var sin = false;
+    var mul = false;
+
     var inputValue = req.body.vote;
 
     if (inputValue == "single"){
+      sin = true;
       img = `${json[number].links.mission_patch}`;
       OutputText = `The ${number} flight of SpaceX is ${json[number].mission_name} in ${json[number].launch_date_utc}!`;
     }
 
     if (inputValue == "multiple"){
+      mul = true;
       var multext;
       for (i = first_number; i<= last_number; i++){
         multext = `The ${i} flight of SpaceX is ${json[i].mission_name} in ${json[i].launch_date_utc}!`;
@@ -57,7 +62,7 @@ app.post('/', function (req, res) {
     }
 
     
-    res.render('index', {result: OutputText, error: null, image: img, mutipleResult: multipleText, multiimage: multiimage});
+    res.render('pages/index', {result: OutputText, error: null, image: img, mutipleResult: multipleText, multiimage: multiimage, sin: sin, mul: mul});
  
   });
 
