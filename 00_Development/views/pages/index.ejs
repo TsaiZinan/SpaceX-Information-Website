@@ -56,46 +56,27 @@
 
 
 
-    <div class="container-fluid">
-
-        <% if(sin == true){ %>
-          
-        <div class="row">
-
-          <div class="col-sm-3">
-            <div class="well">
-              <img src="<%= image %>" class="img-responsive" alt="Responsive image" >
-            </div>
-          </div>
-
-          <div class="col-sm-9">
-            <div class="well">
-              <p class="lead"><%= result %></p>
-            </div>          
-          </div>
-
-        </div>
-
-        <% } %>
-
-      </div>
+    
  
     <div class="container-fluid">
 
-      <% if(mul == true){ %>
+      <% if(locals.input == true){ %>
       <% for (var i = 0; i< mutipleResult.length; i++){ %>
 
       <div class="row">
         
         <div class="col-sm-3">
           <div class="well">
-            <img src="<%= multiimage[i] %>" class="img-responsive" alt="Responsive image">
+            <img src="<%= image[i] %>" class="img-responsive" alt="Responsive image">
           </div>
         </div>
 
         <div class="col-sm-9">
           <div class="well">
-            <p class="lead" style="font-size:30spx"><%= mutipleResult[i] %></p>
+            <p class="lead" style="font-size:50spx"><%= flight_number[i] %></p>
+            <br>
+            core_serial:
+            <p class="lead" style="font-size:30spx"><%= core_serial[i] %></p>
           </div>          
         </div>
 

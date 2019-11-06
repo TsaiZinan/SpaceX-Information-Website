@@ -22,47 +22,97 @@ app.get('/', function (req, res) {
 // });
 
 app.post('/', function (req, res) {
-  let number = req.body.number;
-  let first_number = req.body.first_number;
-  let last_number = req.body.last_number;
+  let single_number = req.body.number - 1;
+  //console.log("== " + single_number);
+  //single_number = single_number - 1;
+  let first_number = req.body.first_number - 1;
+  let last_number = req.body.last_number - 1;
   //let url = `data/all.json`
   let url = `https://api.spacexdata.com/v3/launches`
 
   request(url, function (err, response, body) {
     let json = JSON.parse(body)
 
-    var multipleText = [];
-    var OutputText;
-    var img;
-    var multiimage = [];
+    
+    //var OutputText;
+    //var img;
+    
 
-    var sin = false;
-    var mul = false;
+    //var sin = false;
+    var input = false;
 
     var inputValue = req.body.vote;
 
-    if (inputValue == "single"){
-      sin = true;
-      img = `${json[number].links.mission_patch}`;
-      OutputText = `The ${number} flight of SpaceX is ${json[number].mission_name} in ${json[number].launch_date_utc}!`;
-    }
-
-    if (inputValue == "multiple"){
-      mul = true;
-      var multext;
-      for (i = first_number; i<= last_number; i++){
-        multext = `The ${i} flight of SpaceX is ${json[i].mission_name} in ${json[i].launch_date_utc}!`;
-        multipleText.push(multext);
-      }
-      var mulimg;
-      for (i = first_number; i<= last_number; i++){
-        mulimg = `${json[i].links.mission_patch}`;
-        multiimage.push(mulimg);
-      }
+    if (inputValue){
+      input = true;
     }
 
     
-    res.render('pages/index', {result: OutputText, error: null, image: img, mutipleResult: multipleText, multiimage: multiimage, sin: sin, mul: mul});
+
+    if (inputValue == "single"){
+      first_number = single_number;
+      last_number = single_number;
+      //input = true;
+    }
+
+    
+
+    function img_output (first, last){
+      var totalimage = [];
+      var img;
+      for (i = first; i<= last; i++){
+        img = `${json[i].links.mission_patch}`;
+        totalimage.push(img);
+        console.log("img " + i);
+      }
+      return totalimage;
+    }
+
+    function text_output (first, last){
+      var totaltext = [];
+      var text;
+      for (i = first; i<= last; i++){
+        text = `The ${i} flight of the SpaceX is ${json[i].mission_name} in ${json[i].launch_date_utc} in ${json[i].rocket.first_stage.cores[0].core_serial}!`;
+        totaltext.push(text);
+        console.log("text " + i);
+      }
+      return totaltext;
+    }
+
+    function core (first, last){
+      var output = [];
+      var single;
+      for (i = first; i<= last; i++){
+        single = json[i].rocket.first_stage.cores[0].core_serial;
+        output.push(single);
+      }
+      return output;
+    }
+
+    function number (first, last){
+      var output = [];
+      var single;
+      for (i = first; i<= last; i++){
+        single = json[i].flight_number;
+        output.push(single);
+      }
+      return output;
+    }
+
+    var flight_number = [];
+    flight_number = number(first_number, last_number)
+
+    var multipleText = [];
+    multipleText = text_output(first_number, last_number);
+
+    var image = [];
+    image = img_output(first_number, last_number);
+    
+    var core_serial = [];
+    core_serial = core(first_number, last_number);
+
+
+    res.render('pages/index', { error: null, input: input, mutipleResult: multipleText, image: image, flight_number: flight_number, core_serial: core_serial});
  
   });
 
