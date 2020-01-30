@@ -99,6 +99,36 @@ app.post('/', function (req, res) {
       return output;
     }
 
+    function time (first, last){
+      var output = [];
+      var single;
+      for (i = first; i<= last; i++){
+        single = json[i].launch_date_utc;
+        output.push(single);
+      }
+      return output;
+    }
+
+    function name (first, last){
+      var output = [];
+      var single;
+      for (i = first; i<= last; i++){
+        single = json[i].mission_name;
+        output.push(single);
+      }
+      return output;
+    }
+
+    function location (first, last){
+      var output = [];
+      var single;
+      for (i = first; i<= last; i++){
+        single = json[i].launch_site.site_name;
+        output.push(single);
+      }
+      return output;
+    }
+
     var flight_number = [];
     flight_number = number(first_number, last_number)
 
@@ -111,8 +141,24 @@ app.post('/', function (req, res) {
     var core_serial = [];
     core_serial = core(first_number, last_number);
 
+    var launch_date_utc = [];
+    launch_date_utc = time(first_number, last_number);
 
-    res.render('pages/index', { error: null, input: input, mutipleResult: multipleText, image: image, flight_number: flight_number, core_serial: core_serial});
+    var mission_name = [];
+    mission_name = name(first_number, last_number);
+
+    var site_name = [];
+    site_name = location(first_number, last_number);
+
+    res.render('pages/index', { error: null, input: input, mutipleResult: 
+        multipleText, 
+        image: image, 
+        flight_number: flight_number, 
+        core_serial: core_serial,
+        launch_date_utc: launch_date_utc,
+        mission_name: mission_name,
+        site_name: site_name
+    });
  
   });
 
@@ -134,5 +180,5 @@ app.post('/', function (req, res) {
 
 
 app.listen(80, function () {
-  console.log('Example app listening on port 9000!')
+  console.log('Example app listening on port 80!')
 })

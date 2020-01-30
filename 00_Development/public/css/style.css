@@ -3,7 +3,7 @@
   https://codepen.io/official_naveen/pen/rgknI
 */
 
-body {
+  body {
     width: 800px;
     margin: 0 auto;
     font-family: 'Open Sans', sans-serif;
@@ -77,4 +77,10 @@ body {
     margin-left: auto;
     margin-right: auto;
     width: 50%;
+  }
+  li {
+    font-size: 20px;
+  }
+  .li-number {
+    font-size: 40px;
   }

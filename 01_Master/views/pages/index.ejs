@@ -12,7 +12,12 @@
         <% include ../partials/header %>
     </header>
 
-
+    <!-- <div class="container-sub">
+      <div class="d-flex flex-row-reverse">
+        <div class="p-2 ">1</div>
+        <div class="p-2 ">2</div>
+      </div>
+    </div> -->
 
 
 
@@ -73,10 +78,53 @@
 
         <div class="col-sm-9">
           <div class="well">
-            <p class="lead" style="font-size:50spx"><%= flight_number[i] %></p>
-            <br>
-            core_serial:
-            <p class="lead" style="font-size:30spx"><%= core_serial[i] %></p>
+            <!-- <div class="container-sub">
+              <div class="d-flex flex-row-reverse">
+                <div class="p-2 ">1</div>
+                <div class="p-2 ">2</div>
+              </div>
+            </div> -->
+            
+
+
+
+
+            <!-- <div class="d-flex">
+              <div class="d-flex justify-content-start">
+                <%= flight_number[i] %>
+              </div>
+              <div class="d-flex justify-content-end">
+                <%= launch_date_utc[i] %>
+              </div>
+            </div> -->
+            
+            
+            
+            
+            
+            <ul class="list-inline">
+              
+                <li class="text-left" style="font-size:60spx";><span class="li-number">Launch: <%= flight_number[i] %></span></li>
+                <li class="pull-right " ><span class="li-time"><%= launch_date_utc[i] %></span></li>
+              
+            </ul>
+            <ul class="list-inline">
+             
+                <li class="text-left"><span class="li-name"><%= mission_name[i] %></span></li>
+            
+            </ul>
+            <ul class="list-inline">
+            
+                <li class="text-left">Site: <%= site_name[i] %></li>
+                
+            
+            </ul>
+            <ul class="list-inline">
+            
+              
+              <li class="text-left">First Stage: <%= core_serial[i] %></li>
+          
+          </ul>
           </div>          
         </div>
 
