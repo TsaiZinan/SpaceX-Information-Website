@@ -2,11 +2,21 @@
   <div id="app">
 
     <Header />
+
+    <p/>
+
+    <InputBox 
+      v-on:submit_from_input="submit_from_input"
+    />
+
+    <p/>
+
     <InformationBlock 
       v-if="all.length"
       :single_mission="all[index]"
       :next="next"
     />
+    
     <!-- <Debug /> -->
   </div>
 </template>
@@ -14,6 +24,7 @@
 <script>
 import Header from './components/Header.vue'
 import InformationBlock from './components/InformationBlock.vue'
+import InputBox from './components/InputBox.vue'
 // import Debug from './components/Debug.vue'
 
 export default {
@@ -21,6 +32,7 @@ export default {
   components: {
     Header,
     InformationBlock,
+    InputBox
     // Debug
   },
   data() {
@@ -32,7 +44,11 @@ export default {
   methods: {
     next() {
       this.index++
-    }
+    },
+    submit_from_input: function(input) {
+      this.index=input
+    },
+    
   },
   mounted: function() {
     fetch('https://api.spacexdata.com/v3/launches', {
