@@ -13,9 +13,21 @@
 
     <InformationBlock 
       v-if="all.length"
+      :single_mission="all[last.flight_number]"
+      
+    />
+
+    <InformationBlock 
+      v-if="all.length"
       :single_mission="all[index]"
       :next="next"
     />
+
+    <div>
+      {{ last.flight_number }}
+    </div>
+
+
     
     <!-- <Debug /> -->
   </div>
@@ -38,6 +50,7 @@ export default {
   data() {
     return {
       all: [],
+      last: [],
       index: 0
     }
   },
@@ -59,6 +72,15 @@ export default {
       })
         .then((jsonData) => {
           this.all = jsonData
+        });
+    fetch('https://api.spacexdata.com/v3/launches/latest', {
+      method: 'get'
+    })
+      .then((response) => {
+        return response.json()
+      })
+        .then((jsonData) => {
+          this.last = jsonData
         })
   }
 }
