@@ -30,12 +30,12 @@
       {{ i }}
     </div> -->
 
-    <InformationBlock 
+    <!-- <InformationBlock 
       v-for="i in last.flight_number"
       :key="i"
       :single_mission="all[i]"
       :next="next"
-    />
+    /> -->
 
     <div>
       {{ last.flight_number }}

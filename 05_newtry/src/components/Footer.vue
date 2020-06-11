@@ -1,55 +1,54 @@
+// references: https://www.youtube.com/watch?v=fDm0WJ_66d0
+
+
 <template>
     <div>
       
       
       <!-- <b-button variant="light">Light</b-button> -->
 
-
       <div>
-        <a href="https://www.instagram.com/zinan_tsai/">
+        <a class="btn" href="https://www.instagram.com/zinan_tsai/">
+          <img
+            src="../assets/social_icon/instagram-brands.svg"
+          >
+        </a>
+
+        <a class="btn" href="https://github.com/TsaiZinan">
+          <img
+            src="../assets/social_icon/github-brands.svg"
+          >
+        </a>
+
+        <a class="btn" href="https://www.facebook.com/ZinanTsai/">
+          <img
+            src="../assets/social_icon/facebook-f-brands.svg"
+          >
+        </a>
+
+        <a class="btn" href="https://www.youtube.com/channel/UCkoYSNGFUExdmsAaEiRsqlQ">
+          <img
+            src="../assets/social_icon/youtube-brands.svg"
+          >
+        </a>
+
+        <a class="btn" href="https://www.linkedin.com/in/zinan-cai-183629a8/">
+          <img
+            src="../assets/social_icon/linkedin-in-brands.svg"
+          >
+        </a>
+      </div>
+
+      <div class="copyright">
+        <!-- <a class="btn" href="https://www.instagram.com/zinan_tsai/">
           <b-img 
             v-bind="mainProps" 
             rounded="lg" 
-            src="https://i.imgur.com/b3Cmljl.png"
+            :src="require('../assets/social_icon/instagram-brands.svg')"
+            
             alt="Instragram"
           ></b-img>
-        </a>
-
-        <a href="https://github.com/TsaiZinan">
-          <b-img 
-            v-bind="mainProps" 
-            rounded="lg" 
-            src="https://i.imgur.com/vMEmXDt.png"
-            alt="Github"
-          ></b-img>
-        </a>
-
-        <a href="https://www.facebook.com/ZinanTsai/">
-          <b-img 
-            v-bind="mainProps" 
-            rounded="lg" 
-            src="https://i.imgur.com/tL1uq1W.png"
-            alt="Facebook"
-          ></b-img>
-        </a>
-
-        <a href="https://www.youtube.com/channel/UCkoYSNGFUExdmsAaEiRsqlQ">
-          <b-img 
-            v-bind="mainProps" 
-            rounded="lg" 
-            src="https://i.imgur.com/zy7NitN.png"
-            alt="Youtube"
-          ></b-img>
-        </a>
-
-        <a href="https://www.linkedin.com/in/zinan-cai-183629a8/">
-          <b-img 
-            v-bind="mainProps" 
-            rounded="lg" 
-            src="https://i.imgur.com/EDuKYoW.png"
-            alt="Linkedin"
-          ></b-img>
-        </a>   
+        </a> -->
         
         <p> © Copyright 2020 Zinan Tsai </p>
 
@@ -68,7 +67,28 @@
 </script>
 
 <style scoped>
-  .p {
-    padding-top: 205px;
+  .copyright p{
+    padding: 5px;
+    height: 100%;
+    color: #95a5a6;
+  }
+  .btn {
+    display: inline-block;
+    width: 60px;
+    height: 60px;
+    background: #f1f1f1;
+    margin: 8px;
+    border-radius: 20%;
+    box-shadow: 0 3px 10px -3px #00000070;
+    color: #34495e;
+    overflow: hidden;
+    position: relative;
+  }
+  .btn img {
+    height:100%;
+    width: 100%;
+  }
+  .btn:hover {
+    transform: scale(1.05);
   }
 </style>
