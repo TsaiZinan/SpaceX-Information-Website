@@ -23,6 +23,13 @@
       :next="next"
     />
 
+    <patch 
+      v-for="i in last.flight_number"
+      :key="i"
+      :single_mission="all[i]"
+      :next="next"
+    />
+
     <!-- <div 
       v-for="i in 10"
       :key="i"
@@ -51,6 +58,7 @@
 import Header from './components/Header.vue'
 import Footer from './components/Footer.vue'
 import InformationBlock from './components/InformationBlock.vue'
+import Patch from './components/Patch.vue'
 import InputBox from './components/InputBox.vue'
 // import Debug from './components/Debug.vue'
 
@@ -59,6 +67,7 @@ export default {
   components: {
     Header,
     InformationBlock,
+    Patch,
     InputBox,
     Footer
     // Debug
@@ -110,5 +119,8 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+  background: #f1f1f1;
 }
+
+
 </style>
