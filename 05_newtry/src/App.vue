@@ -1,17 +1,34 @@
 <template>
   <div id="app">
 
-    <Header />
+    <!-- <Header />
+
+    <About />
 
     <p/>
+
+    
 
     <InputBox 
       v-on:submit_from_input="submit_from_input"
-    />
+    /> -->
+
+    <!-- <b-nav tabs>
+      <b-nav-item><router-link to="/">Main</router-link></b-nav-item>
+      <b-nav-item><router-link to="/About">About</router-link></b-nav-item>
+    </b-nav> -->
+
+    
+
+    <router-view class="Nav" name="nav"></router-view>
 
     <p/>
 
-    <InformationBlock 
+    <router-view class="Content"></router-view>
+
+    <p/>
+
+    <!-- <InformationBlock 
       v-if="all.length"
       :single_mission="all[last.flight_number]"
       
@@ -21,7 +38,7 @@
       v-if="all.length"
       :single_mission="all[index]"
       :next="next"
-    />
+    /> -->
 
     <patch 
       v-for="i in last.flight_number"
@@ -44,32 +61,38 @@
       :next="next"
     /> -->
 
-    <div>
+    <!-- <div>
       {{ last.flight_number }}
-    </div>
+    </div> -->
 
-    <Footer />
+    
+
+    <!-- <Footer /> -->
     
     <!-- <Debug /> -->
   </div>
 </template>
 
 <script>
-import Header from './components/Header.vue'
-import Footer from './components/Footer.vue'
-import InformationBlock from './components/InformationBlock.vue'
-import Patch from './components/Patch.vue'
-import InputBox from './components/InputBox.vue'
+// import Header from './components/Header.vue'
+// import Footer from './components/Footer.vue'
+// import InformationBlock from './components/InformationBlock.vue'
+// import Patch from './components/Patch.vue'
+// import InputBox from './components/InputBox.vue'
+// import About from './components/About.vue'
 // import Debug from './components/Debug.vue'
+
+
 
 export default {
   name: 'App',
   components: {
-    Header,
-    InformationBlock,
-    Patch,
-    InputBox,
-    Footer
+    // Header,
+    // InformationBlock,
+    // Patch,
+    // InputBox,
+    // Footer,
+    // About
     // Debug
   },
   data() {

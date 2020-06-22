@@ -46,16 +46,23 @@ export default {
 
 <style scoped>
   .btn {
-    display: inline-block;
+    position: relative;
     width: 200px;
     height: 200px;
-    background: #f1f1f1;
     margin: 16px;
-    border-radius: 10%;
-    box-shadow: 5px 5px 21px -5px #00000070;
-    color: #34495e;
+    border-radius: 15px;
     overflow: hidden;
-    position: relative;
+    border: 10px solid #f1f1f1;
+    box-shadow: 2px 2px 20px -7px #00000070;
+    background: #f1f1f1;
+    
+    
+    /* box-shadow: 5px 5px 21px -5px #00000070; */
+    color: #34495e;
+    
+
+    display: inline-block;
+    
   }
   .btn img {
     height:100%;
